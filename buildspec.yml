@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Build started on $(date)"
+      - echo "Checking that index.html exists and is valid HTML"
+      - test -f index.html
+      - grep -q "<html" index.html
+      - echo "Checks passed"
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+
+artifacts:
+  files:
+    - index.html
